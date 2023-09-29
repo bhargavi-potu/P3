@@ -1,5 +1,3 @@
-// TableTemplate.js
-
 "use strict";
 
 class TableTemplate {
@@ -13,7 +11,6 @@ class TableTemplate {
 
     const headers = table.rows[0].cells;
 
-    // Replace template strings in header row
     for (let i = 0; i < headers.length; i++) {
       const headerText = headers[i].textContent;
       const replacedText = this.replaceTemplateStrings(headerText, dict);
@@ -26,7 +23,6 @@ class TableTemplate {
       if (columnIndex !== -1) {
         const rows = table.rows;
 
-        // Replace template strings in specified column
         for (let i = 1; i < rows.length; i++) {
           const cellText = rows[i].cells[columnIndex].textContent;
           const replacedText = this.replaceTemplateStrings(cellText, dict);

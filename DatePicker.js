@@ -1,5 +1,3 @@
-// DatePicker.js
-
 "use strict";
 
 class DatePicker {
@@ -30,7 +28,6 @@ class DatePicker {
 
     const daysOfWeek = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-    // Create the date picker HTML
     const datePickerHTML = `
       <div class="date-picker">
         <div class="header">
@@ -51,7 +48,6 @@ class DatePicker {
 
     container.innerHTML = datePickerHTML;
 
-    // Add event listeners to the navigation buttons
     const prevMonthBtn = container.querySelector(".prev-month");
     const nextMonthBtn = container.querySelector(".next-month");
 
@@ -65,7 +61,6 @@ class DatePicker {
       this.render(currentDate);
     });
 
-    // Add click event listeners to the days
     const dayElements = container.querySelectorAll(".day");
     dayElements.forEach((dayElement) => {
       dayElement.addEventListener("click", () => {
@@ -108,7 +103,6 @@ class DatePicker {
 
     const calendarArray = [];
 
-    // Fill in days of the previous month
     for (
       let i = daysInPreviousMonth - startDayOfWeek + 1;
       i <= daysInPreviousMonth;
@@ -117,7 +111,6 @@ class DatePicker {
       calendarArray.push({ day: i, inactive: true });
     }
 
-    // Fill in days of the current month
     for (let i = 1; i <= daysInMonth; i++) {
       const isToday =
         currentDate.getFullYear() === today.getFullYear() &&
@@ -127,12 +120,10 @@ class DatePicker {
       calendarArray.push({ day: i, inactive: false, today: isToday });
     }
 
-    // Fill in days of the next month
     for (let i = 1; i <= 6 - endDayOfWeek; i++) {
       calendarArray.push({ day: i, inactive: true });
     }
 
-    // Generate HTML for calendar days
     const dayElements = calendarArray.map((dayInfo) => {
       const classes = ["day"];
       if (dayInfo.inactive) classes.push("inactive");
